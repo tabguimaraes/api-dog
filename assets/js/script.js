@@ -21,7 +21,7 @@ async function buscarImagens(raca) {
 
 elemento.botao.addEventListener("click", function (evento) {
   evento.preventDefault();
-  // elemento.container.replaceChildren("img");
+  elemento.container.replaceChildren();
   buscarImagens(elemento.input.value);
 });
 
