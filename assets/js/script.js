@@ -6,8 +6,6 @@ const elemento = {
   container: document.querySelector("#container"),
 };
 
-let listaRacas;
-
 async function buscarImagens(raca) {
   const url = `https://dog.ceo/api/breed/${raca}/images`;
 
@@ -15,7 +13,6 @@ async function buscarImagens(raca) {
 
   const imagens = await response;
 
-  // return imagens.message;
   return criarElementoIMG(imagens.message);
 }
 
