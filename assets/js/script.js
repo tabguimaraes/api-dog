@@ -1,22 +1,34 @@
 "use strict";
 
 const elemento = {
-  input: document.querySelector("input").value,
+  input: document.querySelector("input"),
   botao: document.querySelector("button"),
   container: document.querySelector("#container"),
 };
 
-console.log(elemento.container);
+let listaRacas;
 
-// async function buscarImagens(raca) {
-//   const url = `https://dog.ceo/api/breed/${raca}/images`;
+async function buscarImagens(raca) {
+  const url = `https://dog.ceo/api/breed/${raca}/images`;
 
-//   const response = (await fetch(url)).json();
+  const response = (await fetch(url)).json();
 
-//   const imagens = await response;
+  const imagens = await response;
 
-//   console.log(imagens.message);
+  // return imagens.message;
+  return criarElementoIMG(imagens.message);
+}
 
-//   return imagens.message;
-// }
-// buscarImagens("beagle");
+elemento.botao.addEventListener("click", function (evento) {
+  evento.preventDefault();
+  // elemento.container.replaceChildren("img");
+  buscarImagens(elemento.input.value);
+});
+
+function criarElementoIMG(imagens) {
+  imagens.forEach((item) => {
+    const img = document.createElement("img");
+    img.src = item;
+    elemento.container.appendChild(img);
+  });
+}
