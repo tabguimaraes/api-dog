@@ -1,17 +1,22 @@
 "use strict";
 
-async function buscarImagens(raca) {
-  //
-  //
+const elemento = {
+  input: document.querySelector("input").value,
+  botao: document.querySelector("button"),
+  container: document.querySelector("#container"),
+};
 
-  const url = `https://dog.ceo/api/breed/${raca}/images`;
+console.log(elemento.container);
 
-  const response = (await fetch(url)).json();
+// async function buscarImagens(raca) {
+//   const url = `https://dog.ceo/api/breed/${raca}/images`;
 
-  const imagens = await response;
+//   const response = (await fetch(url)).json();
 
-  console.log(imagens.message);
+//   const imagens = await response;
 
-  return imagens.message;
-}
-buscarImagens("beagle");
+//   console.log(imagens.message);
+
+//   return imagens.message;
+// }
+// buscarImagens("beagle");
