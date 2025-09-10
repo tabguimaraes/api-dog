@@ -11,6 +11,8 @@
     --color-amber-100: oklch(96.2% 0.059 95.617);
     --color-white: #fff;
     --spacing: 0.25rem;
+    --container-3xs: 16rem;
+    --container-2xl: 42rem;
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
@@ -217,11 +219,26 @@
   .w-full {
     width: 100%;
   }
+  .flex-3 {
+    flex: 3;
+  }
   .border-collapse {
     border-collapse: collapse;
   }
   .resize {
     resize: both;
+  }
+  .columns-2 {
+    columns: 2;
+  }
+  .columns-3 {
+    columns: 3;
+  }
+  .columns-4 {
+    columns: 4;
+  }
+  .columns-5 {
+    columns: 5;
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -238,8 +255,23 @@
   .justify-items-center {
     justify-items: center;
   }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
+  }
+  .gap-\[-8px\] {
+    gap: -8px;
+  }
+  .gap-\[0px\] {
+    gap: 0px;
+  }
+  .gap-\[8px\] {
+    gap: 8px;
   }
   .place-self-center {
     place-self: center;
@@ -293,6 +325,16 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
+  .\*\:mb-5 {
+    :is(& > *) {
+      margin-bottom: calc(var(--spacing) * 5);
+    }
+  }
+  .\*\:mb-10 {
+    :is(& > *) {
+      margin-bottom: calc(var(--spacing) * 10);
+    }
+  }
   .\*\:h-fit {
     :is(& > *) {
       height: fit-content;
@@ -316,6 +358,11 @@
   .\*\:max-h-fit {
     :is(& > *) {
       max-height: fit-content;
+    }
+  }
+  .\*\:w-10\/12 {
+    :is(& > *) {
+      width: calc(10/12 * 100%);
     }
   }
   .\*\:w-11\/12 {
@@ -349,6 +396,26 @@
       display: grid;
     }
   }
+  .md\:columns-2xl {
+    @media (width >= 48rem) {
+      columns: var(--container-2xl);
+    }
+  }
+  .md\:columns-3 {
+    @media (width >= 48rem) {
+      columns: 3;
+    }
+  }
+  .md\:columns-3xs {
+    @media (width >= 48rem) {
+      columns: var(--container-3xs);
+    }
+  }
+  .md\:columns-5 {
+    @media (width >= 48rem) {
+      columns: 5;
+    }
+  }
   .md\:grid-cols-3 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -373,6 +440,11 @@
       :is(& > *) {
         max-height: fit-content;
       }
+    }
+  }
+  .xl\:columns-5 {
+    @media (width >= 80rem) {
+      columns: 5;
     }
   }
   .xl\:grid-cols-5 {
